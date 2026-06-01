@@ -1,14 +1,14 @@
 @extends('layouts.app')
 
-@section('title', 'About Us | Denver Elite')
+@section('title', 'About Us | Denver Limo Cars')
 
 @section('content')
 <!-- Hero Section -->
 <header class="relative w-full h-[500px] flex items-center justify-center overflow-hidden border-b border-outline/10">
-    <img alt="Denver Elite Hero" class="absolute inset-0 w-full h-full object-cover opacity-30 mix-blend-luminosity scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCsyejjO2p3XWJPueL65eaD1Dz8MPeDiPZFAxinPzwoXjq-34JFjXV7nI8gSZUvH-4H-_3MuTqr7-y6asXq76Mvy1FOa0ytqnVIEIocux9BP9jzRpsLcOPzC0CPsGRnXjIOAY6okz1GW8sz_pZKdQLxSHscgkssInfC7gqEuj_fP8P29qZCIbVmv5p1pF7JuuCTwNQAtblBzHTdTyeBtvrhNzucbDu9L-b2aJPI9T6rkM8-4e_7bhs3IOnbYqMsg2xqWsmVh5NdlJPC"/>
+    <img alt="Denver Limo Cars Hero" class="absolute inset-0 w-full h-full object-cover opacity-30 mix-blend-luminosity scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCsyejjO2p3XWJPueL65eaD1Dz8MPeDiPZFAxinPzwoXjq-34JFjXV7nI8gSZUvH-4H-_3MuTqr7-y6asXq76Mvy1FOa0ytqnVIEIocux9BP9jzRpsLcOPzC0CPsGRnXjIOAY6okz1GW8sz_pZKdQLxSHscgkssInfC7gqEuj_fP8P29qZCIbVmv5p1pF7JuuCTwNQAtblBzHTdTyeBtvrhNzucbDu9L-b2aJPI9T6rkM8-4e_7bhs3IOnbYqMsg2xqWsmVh5NdlJPC"/>
     <div class="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent"></div>
     <div class="relative z-10 text-center px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto translate-y-4">
-        <p class="font-label-lg text-label-lg text-primary uppercase tracking-widest mb-unit-md opacity-80">The Denver Elite Story</p>
+        <p class="font-label-lg text-label-lg text-primary uppercase tracking-widest mb-unit-md opacity-80">The Denver Limo Cars Story</p>
         <h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-on-background max-w-4xl mx-auto leading-tight">
             Excellence in Motion.
         </h1>
@@ -30,7 +30,7 @@
                 <span class="font-label-sm text-label-sm text-primary uppercase tracking-widest">Est. 2014</span>
             </div>
             <h2 class="font-headline-lg text-headline-lg text-on-background">Our Heritage</h2>
-            <p class="font-body-lg text-body-lg text-on-surface-variant">For over a decade, Denver Elite has redefined luxury transportation in the heart of Colorado. Born from a vision of uncompromising quality, we have meticulously grown from a boutique car service into Denver's premier executive transport provider.</p>
+            <p class="font-body-lg text-body-lg text-on-surface-variant">For over a decade, Denver Limo Cars has redefined luxury transportation in the heart of Colorado. Born from a vision of uncompromising quality, we have meticulously grown from a boutique car service into Denver's premier executive transport provider.</p>
             <p class="font-body-md text-body-md text-on-surface-variant">We understand that we don't just move people; we curate seamless transitions. Whether navigating rugged mountain passes to Aspen or gliding through bustling city avenues, our legacy is built on unyielding punctuality, absolute discretion, and a profound commitment to our clients' serenity.</p>
         </div>
     </div>
@@ -41,7 +41,7 @@
     <div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
         <!-- Fleet Card -->
         <div class="bg-surface border border-outline/20 p-unit-xl flex flex-col justify-end min-h-[500px] relative overflow-hidden group">
-            <img class="absolute inset-0 w-full h-full object-cover opacity-30 group-hover:opacity-40 transition-opacity duration-700 mix-blend-luminosity scale-100 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCwdQOl_gEikFr8S56LY87vmh4n4T8Os96QusQHy_xCw3e_FGw-AKH_9_HDQkXuHRIoeUKPb3R5W1duTKCiRHfkfuttg8Co3muxab46pIDiDk3EZzUpb6mo6AGoX8wqlwLM1jZrInNnZ_3I4pUNDeZ5JX-x5guIDlXsknVGldwFcpiz__GkBWfv5z1JVAlsOJBicn7YKUeeYJjp2cIcrGgBz4nygltAm9o94StJ9rg-nexFOFU51pLi-Zs9rXSrS_txEOscFDJPEL5c" alt="Denver Elite luxury SUV"/>
+            <img class="absolute inset-0 w-full h-full object-cover opacity-30 group-hover:opacity-40 transition-opacity duration-700 mix-blend-luminosity scale-100 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCwdQOl_gEikFr8S56LY87vmh4n4T8Os96QusQHy_xCw3e_FGw-AKH_9_HDQkXuHRIoeUKPb3R5W1duTKCiRHfkfuttg8Co3muxab46pIDiDk3EZzUpb6mo6AGoX8wqlwLM1jZrInNnZ_3I4pUNDeZ5JX-x5guIDlXsknVGldwFcpiz__GkBWfv5z1JVAlsOJBicn7YKUeeYJjp2cIcrGgBz4nygltAm9o94StJ9rg-nexFOFU51pLi-Zs9rXSrS_txEOscFDJPEL5c" alt="Denver Limo Cars luxury SUV"/>
             <div class="absolute inset-0 bg-gradient-to-t from-surface via-surface/80 to-transparent"></div>
             <div class="relative z-10 transform transition-transform duration-500 translate-y-4 group-hover:translate-y-0">
                 <h3 class="font-headline-md text-headline-md text-primary mb-unit-sm flex items-center gap-2">
@@ -54,7 +54,7 @@
         </div>
         <!-- Chauffeurs Card -->
         <div class="bg-surface border border-outline/20 p-unit-xl flex flex-col justify-end min-h-[500px] relative overflow-hidden group">
-            <img class="absolute inset-0 w-full h-full object-cover opacity-30 group-hover:opacity-40 transition-opacity duration-700 mix-blend-luminosity scale-100 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAogFEebYJY9v29FtddMqli3oerqS_vRnj0lSRITgCbtUzht6g-jXGvoTdQ0X3W2xd6hiM1kvC7Xl7Hh9efhcg43NO_cGvlPLU8v9wZTs4XiWb9WKY3LPEuK-Op5QEQAA_V8YT_9-1MfkFIE8PEtsmszbBjrAU2lT1xw2AXgwxdPuQMaZCl0-4VmzkoEnofH8SXb66JSjLza5TLYvYsosAyWIFN03llBo6TZXUI1-ESBYg_lunZVa0nrAvL_iQstGfqxsTJfM_XjKUK" alt="Denver Elite Chauffeur"/>
+            <img class="absolute inset-0 w-full h-full object-cover opacity-30 group-hover:opacity-40 transition-opacity duration-700 mix-blend-luminosity scale-100 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAogFEebYJY9v29FtddMqli3oerqS_vRnj0lSRITgCbtUzht6g-jXGvoTdQ0X3W2xd6hiM1kvC7Xl7Hh9efhcg43NO_cGvlPLU8v9wZTs4XiWb9WKY3LPEuK-Op5QEQAA_V8YT_9-1MfkFIE8PEtsmszbBjrAU2lT1xw2AXgwxdPuQMaZCl0-4VmzkoEnofH8SXb66JSjLza5TLYvYsosAyWIFN03llBo6TZXUI1-ESBYg_lunZVa0nrAvL_iQstGfqxsTJfM_XjKUK" alt="Denver Limo Cars Chauffeur"/>
             <div class="absolute inset-0 bg-gradient-to-t from-surface via-surface/80 to-transparent"></div>
             <div class="relative z-10 transform transition-transform duration-500 translate-y-4 group-hover:translate-y-0">
                 <h3 class="font-headline-md text-headline-md text-primary mb-unit-sm flex items-center gap-2">
@@ -74,7 +74,7 @@
     <div class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto text-center max-w-4xl relative z-10 font-body-md">
         <span class="material-symbols-outlined text-primary mb-unit-lg text-[48px]" style="font-variation-settings: 'FILL' 1;">workspace_premium</span>
         <h2 class="font-headline-lg text-headline-lg text-on-background mb-unit-lg">Commitment to Excellence</h2>
-        <p class="font-body-lg text-body-lg text-on-surface-variant mb-unit-xl max-w-3xl mx-auto">At Denver Elite, good is never enough. We hold ourselves to the most rigorous quality standards in the industry. Reliability is merely our baseline; perfection is our daily pursuit. Every ride, every route, every interaction is a testament to our dedication to delivering an unparalleled luxury experience.</p>
+        <p class="font-body-lg text-body-lg text-on-surface-variant mb-unit-xl max-w-3xl mx-auto">At Denver Limo Cars, good is never enough. We hold ourselves to the most rigorous quality standards in the industry. Reliability is merely our baseline; perfection is our daily pursuit. Every ride, every route, every interaction is a testament to our dedication to delivering an unparalleled luxury experience.</p>
         <a href="/contact" class="inline-block bg-primary text-on-primary px-10 py-4 font-label-lg text-label-lg hover:bg-primary-fixed transition-colors duration-300">
             Experience the Difference
         </a>

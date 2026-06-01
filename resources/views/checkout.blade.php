@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Secure Checkout | Denver Elite')
+@section('title', 'Secure Checkout | Denver Limo Cars')
 
 @section('content')
 <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-12">
@@ -21,11 +21,11 @@
         
         <!-- Left: Forms -->
         <div class="lg:col-span-8 space-y-8">
-            <form action="/checkout/store" method="POST" class="space-y-8">
+            <form action="/checkout/passenger" method="POST" class="space-y-8">
                 @csrf
                 
                 <!-- Hidden fields to pass booking criteria -->
-                <input type="hidden" name="vehicle" value="{{ $vehicle['name'] }}">
+                <input type="hidden" name="vehicle" value="{{ $vehicle['key'] }}">
                 <input type="hidden" name="pickup" value="{{ $search['pickup'] }}">
                 <input type="hidden" name="dropoff" value="{{ $search['dropoff'] ?? '' }}">
                 <input type="hidden" name="date" value="{{ $search['date'] }}">
@@ -87,50 +87,15 @@
                     </div>
                 </div>
 
-                <!-- 3. Billing details -->
-                <div class="bg-surface-container p-6 rounded-xl border border-outline/15 shadow-md space-y-6">
-                    <div class="flex justify-between items-center">
-                        <h2 class="font-headline-md text-headline-md text-primary flex items-center gap-2">
-                            <span class="material-symbols-outlined text-[24px]">credit_card</span>
-                            Secure Payment Information
-                        </h2>
-                        <span class="material-symbols-outlined text-primary text-xl" title="SSL Secure 256-bit encryption">lock</span>
-                    </div>
-
-                    <div>
-                        <label class="block font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider mb-2" for="card_name">Cardholder Name</label>
-                        <input class="w-full luxury-input px-4 py-3 text-on-surface" type="text" id="card_name" name="card_name" required value="Alexander Hamilton"/>
-                    </div>
-                    
-                    <div>
-                        <label class="block font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider mb-2" for="card_number">Credit Card Number</label>
-                        <div class="relative">
-                            <input class="w-full luxury-input pl-4 pr-12 py-3 text-on-surface font-mono" type="text" id="card_number" name="card_number" required placeholder="•••• •••• •••• ••••" value="4111 1111 1111 1111"/>
-                            <span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-on-surface-variant">credit_card</span>
-                        </div>
-                    </div>
-                    
-                    <div class="grid grid-cols-2 gap-6">
-                        <div>
-                            <label class="block font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider mb-2" for="card_expiry">Expiration Date</label>
-                            <input class="w-full luxury-input px-4 py-3 text-on-surface" type="text" id="card_expiry" name="card_expiry" required placeholder="MM/YY" value="12/28"/>
-                        </div>
-                        <div>
-                            <label class="block font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider mb-2" for="card_cvv">CVV</label>
-                            <input class="w-full luxury-input px-4 py-3 text-on-surface" type="password" id="card_cvv" name="card_cvv" required placeholder="•••" value="123"/>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Secure Confirmation -->
+                <!-- Proceed to Confirmation -->
                 <div class="pt-4 flex flex-col items-center gap-3">
                     <button type="submit" class="w-full bg-primary text-on-primary font-label-lg text-label-lg py-4 rounded-md hover:bg-primary-fixed transition-all duration-300 shadow-[0_4px_20px_rgba(197,160,89,0.4)] flex items-center justify-center gap-2">
-                        <span class="material-symbols-outlined text-[20px]">verified_user</span>
-                        Confirm Secure Booking
+                        <span>Proceed to Confirmation &amp; Payment</span>
+                        <span class="material-symbols-outlined text-[20px]">arrow_forward</span>
                     </button>
                     <p class="font-body-sm text-body-sm text-on-surface-variant opacity-60 text-center flex items-center gap-1.5">
-                        <span class="material-symbols-outlined text-sm">lock</span>
-                        Your details are encrypted and protected by industry-standard SSL protocols.
+                        <span class="material-symbols-outlined text-sm">shield</span>
+                        Your information is securely processed.
                     </p>
                 </div>
             </form>
@@ -227,4 +192,5 @@
         </aside>
     </div>
 </div>
+
 @endsection

@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Trip Management | Denver Elite')
+@section('title', 'Trip Management | Denver Limo Cars')
 
 @section('content')
 <div class="w-full max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-unit-xl grid grid-cols-1 md:grid-cols-12 gap-gutter">

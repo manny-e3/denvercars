@@ -255,48 +255,20 @@
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-
-            {{-- Escalade --}}
+            @foreach(($vehicles ?? \App\Models\Vehicle::all()) as $vehicle)
             <div class="group text-center">
                 <div class="relative rounded-lg overflow-hidden" style="aspect-ratio:4/3;">
                     <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                         src="https://lh3.googleusercontent.com/aida-public/AB6AXuCwdQOl_gEikFr8S56LY87vmh4n4T8Os96QusQHy_xCw3e_FGw-AKH_9_HDQkXuHRIoeUKPb3R5W1duTKCiRHfkfuttg8Co3muxab46pIDiDk3EZzUpb6mo6AGoX8wqlwLM1jZrInNnZ_3I4pUNDeZ5JX-x5guIDlXsknVGldwFcpiz__GkBWfv5z1JVAlsOJBicn7YKUeeYJjp2cIcrGgBz4nygltAm9o94StJ9rg-nexFOFU51pLi-Zs9rXSrS_txEOscFDJPEL5c"
-                         alt="Escalade">
+                         src="{{ $vehicle->image }}"
+                         alt="{{ $vehicle->name }}">
                     <div class="absolute bottom-0 left-0 right-0 flex justify-center pb-3">
                         <span class="text-white text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-sm"
-                              style="background:#c5a059;font-family:Montserrat,sans-serif;">Luxury SUV</span>
+                              style="background:#c5a059;font-family:Montserrat,sans-serif;">{{ $vehicle->class }}</span>
                     </div>
                 </div>
-                <p class="mt-4 font-bold text-gray-900" style="font-size:1rem;font-family:Montserrat,sans-serif;">Escalade</p>
+                <p class="mt-4 font-bold text-gray-900" style="font-size:1rem;font-family:Montserrat,sans-serif;">{{ $vehicle->name }}</p>
             </div>
-
-            {{-- S-Class --}}
-            <div class="group text-center">
-                <div class="relative rounded-lg overflow-hidden" style="aspect-ratio:4/3;">
-                    <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                         src="https://lh3.googleusercontent.com/aida-public/AB6AXuCsyejjO2p3XWJPueL65eaD1Dz8MPeDiPZFAxinPzwoXjq-34JFjXV7nI8gSZUvH-4H-_3MuTqr7-y6asXq76Mvy1FOa0ytqnVIEIocux9BP9jzRpsLcOPzC0CPsGRnXjIOAY6okz1GW8sz_pZKdQLxSHscgkssInfC7gqEuj_fP8P29qZCIbVmv5p1pF7JuuCTwNQAtblBzHTdTyeBtvrhNzucbDu9L-b2aJPI9T6rkM8-4e_7bhs3IOnbYqMsg2xqWsmVh5NdlJPC"
-                         alt="Mercedes-Benz S-Class">
-                    <div class="absolute bottom-0 left-0 right-0 flex justify-center pb-3">
-                        <span class="text-white text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-sm"
-                              style="background:#c5a059;font-family:Montserrat,sans-serif;">First Class Sedan</span>
-                    </div>
-                </div>
-                <p class="mt-4 font-bold text-gray-900" style="font-size:1rem;font-family:Montserrat,sans-serif;">Mercedes-Benz S-Class</p>
-            </div>
-
-            {{-- Sprinter --}}
-            <div class="group text-center">
-                <div class="relative rounded-lg overflow-hidden" style="aspect-ratio:4/3;">
-                    <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                         src="https://lh3.googleusercontent.com/aida-public/AB6AXuAH0Gru2JVDtgOYteoO8yQTTURBBLcatQbfZFs-fSyJjsuit7XekJGIqa86OLaZDUC_CRdr1csFeAjg-7A7CLBat7IqeXIQ9kkyk8NYKL8yJSz_1HQyeBGZriU55fSCdVPwgmsWYMjgGc-PR6aJ03aEDhuk8j9dRZoRbz6EFAGfr7_0pIhWpUkw1SuwJpakjbkZOwj3Tio4rZmMuEVs0Xq7kEbqr_GXe7MnrXfEVf-lSVi5FPcZ3jTljm2RTsTxhEIM-qvmLXHBs64o"
-                         alt="Sprinter Van">
-                    <div class="absolute bottom-0 left-0 right-0 flex justify-center pb-3">
-                        <span class="text-white text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-sm"
-                              style="background:#c5a059;font-family:Montserrat,sans-serif;">Executive Van</span>
-                    </div>
-                </div>
-                <p class="mt-4 font-bold text-gray-900" style="font-size:1rem;font-family:Montserrat,sans-serif;">Sprinter</p>
-            </div>
+            @endforeach
         </div>
     </div>
 </section>
@@ -322,7 +294,7 @@
                 </svg>
                 <h3 class="font-bold text-gray-900 text-base" style="font-family:Montserrat,sans-serif;">Professional Chauffeurs</h3>
                 <p class="text-gray-500 text-sm leading-relaxed" style="font-family:Montserrat,sans-serif;max-width:260px;">
-                    Rigorous vetting, ongoing safety training, and advanced driver monitoring ensure a secure, elite journey.
+                    Rigorous vetting, ongoing safety training, and advanced driver monitoring ensure a secure, premium journey.
                 </p>
             </div>
 

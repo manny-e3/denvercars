@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Contact Us & FAQ | Denver Elite')
+@section('title', 'Contact Us & FAQ | Denver Limo Cars')
 
 @section('content')
 <!-- Hero Section -->
@@ -76,7 +76,7 @@
                     <span class="material-symbols-outlined text-primary text-3xl" style="font-variation-settings: 'FILL' 1;">mail</span>
                     <div>
                         <h3 class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant mb-1">Inquiries</h3>
-                        <p class="font-body-md text-body-md text-on-surface">concierge@denverelite.com</p>
+                        <p class="font-body-md text-body-md text-on-surface">concierge@denvercars.com</p>
                     </div>
                 </div>
             </div>

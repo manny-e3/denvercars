@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Available Vehicles | Denver Elite')
+@section('title', 'Available Vehicles | Denver Limo Cars')
 
 @section('content')
 <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-12">
@@ -47,27 +47,9 @@
     <div class="space-y-8">
         @php $shownCount = 0; @endphp
         @foreach($vehicles as $vehicle)
-            @php
-                $reqPassengers = (int) $search['passengers'];
-                $reqLuggage    = (int) ($search['luggage'] ?? 0);
-
-                // A vehicle is eligible only if it can seat all passengers AND hold all bags
-                $eligible = ($reqPassengers <= $vehicle['passengers'])
-                         && ($reqLuggage    <= $vehicle['luggage']);
-
-                // Build a reason string shown on the disabled button
-                $ineligibleReason = '';
-                if ($reqPassengers > $vehicle['passengers'] && $reqLuggage > $vehicle['luggage']) {
-                    $ineligibleReason = 'Exceeds passenger & luggage capacity';
-                } elseif ($reqPassengers > $vehicle['passengers']) {
-                    $ineligibleReason = 'Exceeds passenger capacity';
-                } elseif ($reqLuggage > $vehicle['luggage']) {
-                    $ineligibleReason = 'Exceeds luggage capacity';
-                }
-            @endphp
             
             <!-- Vehicle Card -->
-            <div class="bg-surface p-6 rounded-xl border {{ $eligible ? 'border-outline/20 hover:border-primary/50' : 'border-outline/5 opacity-50' }} flex flex-col lg:flex-row justify-between items-stretch gap-6 transition-all duration-300">
+            <div class="bg-surface p-6 rounded-xl border {{ $vehicle['eligible'] ? 'border-outline/20 hover:border-primary/50' : 'border-outline/5 opacity-50' }} flex flex-col lg:flex-row justify-between items-stretch gap-6 transition-all duration-300">
                 <!-- Vehicle Image -->
                 <div class="lg:w-1/3 relative rounded-lg overflow-hidden h-48 lg:h-auto min-h-[180px]">
                     <img class="w-full h-full object-cover mix-blend-luminosity hover:mix-blend-normal transition-all duration-500" src="{{ $vehicle['image'] }}" alt="{{ $vehicle['name'] }}"/>
@@ -84,9 +66,12 @@
                         <p class="font-body-md text-body-md text-on-surface-variant mt-2">{{ $vehicle['description'] }}</p>
                     </div>
 
-                    <div class="flex gap-x-6 text-on-surface-variant text-label-sm font-label-sm">
+                    <div class="flex gap-x-6 text-on-surface-variant text-label-sm font-label-sm flex-wrap gap-y-2">
                         <span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-[18px]">group</span> {{ $vehicle['passengers'] }} Max Passengers</span>
                         <span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-[18px]">work</span> {{ $vehicle['luggage'] }} Max Bags</span>
+                        @if($search['service_type'] === 'hourly' && isset($vehicle['miles_allowed']))
+                            <span class="flex items-center gap-1.5 text-primary"><span class="material-symbols-outlined text-[18px]">route</span> {{ $vehicle['miles_allowed'] }} Miles Included</span>
+                        @endif
                     </div>
 
                     <div class="flex items-center gap-4 text-on-surface-variant text-body-sm font-body-sm">
@@ -100,67 +85,30 @@
                 <div class="lg:w-3/12 border-t lg:border-t-0 lg:border-l border-outline/10 pt-6 lg:pt-0 lg:pl-6 flex flex-col justify-between items-stretch lg:items-end text-left lg:text-right">
                     <div class="space-y-1">
                         <p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest">Estimated Total Fare</p>
-                        @php
-                            /*
-                             * ── FARE CALCULATION ──────────────────────────────────────────
-                             * Components:
-                             *   1. Base / distance rate
-                             *      • Airport: flat rate for ≤20 miles, +$5/mile beyond
-                             *      • Hourly:  hourly_rate × duration
-                             *   2. Luggage surcharge: $4 per bag over 2 (first 2 included)
-                             *   3. Passenger surcharge: $3 per passenger over 2
-                             *   4. Tax: 8.25%
-                             *   5. Gate / airport fee: $15
-                             * ──────────────────────────────────────────────────────────────
-                             */
-                            $distanceMiles   = (float) ($search['distance_miles'] ?? 0);
-                            $reqPassengers   = (int) $search['passengers'];
-                            $reqLuggage      = (int) ($search['luggage'] ?? 0);
-                            $flatRate        = $vehicle['airport_rate'];
-
-                            // 1. Base rate
-                            if ($search['service_type'] === 'airport') {
-                                if ($distanceMiles > 0) {
-                                    $baseRate = ($distanceMiles <= 20)
-                                        ? $flatRate
-                                        : $flatRate + ($distanceMiles - 20) * 5;
-                                } else {
-                                    $baseRate = $flatRate; // fallback: no distance provided
-                                }
-                            } else {
-                                $baseRate = $vehicle['hourly_rate'] * ($search['duration'] ?? 1);
-                            }
-
-                            // 2. Luggage surcharge ($4/bag beyond first 2)
-                            $luggageSurcharge    = max(0, $reqLuggage - 2) * 4;
-
-                            // 3. Passenger surcharge ($3/person beyond first 2)
-                            $passengerSurcharge  = max(0, $reqPassengers - 2) * 3;
-
-                            $fee   = 15.00; // Airport / Gate fee
-                            $total = $baseRate + $luggageSurcharge + $passengerSurcharge + $fee;
-                        @endphp
-                        <p class="font-headline-lg text-headline-lg text-primary font-bold">${{ number_format($total, 2) }}</p>
+                        <p class="font-headline-lg text-headline-lg text-primary font-bold">${{ number_format($vehicle['total_fare'], 2) }}</p>
                         <div class="font-body-sm text-body-sm text-on-surface-variant opacity-60 space-y-0.5 mt-1">
-                            <p>${{ number_format($baseRate, 2) }} base fare</p>
-                            @if($luggageSurcharge > 0)
-                                <p>+${{ number_format($luggageSurcharge, 2) }} luggage ({{ max(0,$reqLuggage-2) }} extra bag{{ max(0,$reqLuggage-2) > 1 ? 's' : '' }})</p>
+                            <p>${{ number_format($vehicle['base_rate'], 2) }} base fare</p>
+                            @if($vehicle['luggage_surcharge'] > 0)
+                                <p>+${{ number_format($vehicle['luggage_surcharge'], 2) }} luggage ({{ max(0, (int)($search['luggage'] ?? 0) - 2) }} extra bag{{ max(0, (int)($search['luggage'] ?? 0) - 2) > 1 ? 's' : '' }})</p>
                             @endif
-                            @if($passengerSurcharge > 0)
-                                <p>+${{ number_format($passengerSurcharge, 2) }} extra passengers</p>
+                            @if($vehicle['passenger_surcharge'] > 0)
+                                <p>+${{ number_format($vehicle['passenger_surcharge'], 2) }} extra passengers</p>
                             @endif
-                            <p>+${{ number_format($fee, 2) }} gate fee</p>
+                            @if(isset($vehicle['peak_surcharge']) && $vehicle['peak_surcharge'] > 0)
+                                <p class="text-primary font-medium">+${{ number_format($vehicle['peak_surcharge'], 2) }} peak surcharge</p>
+                            @endif
+                            <p>+${{ number_format($vehicle['gate_fee'], 2) }} gate fee</p>
                         </div>
                     </div>
 
-                    @if($eligible)
+                    @if($vehicle['eligible'])
                         @php $shownCount++; @endphp
-                        <a href="/checkout?vehicle={{ $vehicle['key'] }}&pickup={{ urlencode($search['pickup']) }}&dropoff={{ urlencode($search['dropoff'] ?? '') }}&passengers={{ $search['passengers'] }}&luggage={{ $search['luggage'] }}&date={{ $search['date'] }}&time={{ $search['time'] }}&service_type={{ $search['service_type'] }}&duration={{ $search['duration'] ?? '' }}&distance_miles={{ $search['distance_miles'] ?? 0 }}&total={{ $total }}" class="w-full bg-primary text-on-primary font-label-lg text-label-lg py-4 px-6 rounded-md hover:bg-primary-fixed transition-all duration-300 text-center shadow-[0_4px_14px_rgba(197,160,89,0.3)]">
+                        <a href="/checkout?vehicle={{ $vehicle['key'] }}&pickup={{ urlencode($search['pickup']) }}&dropoff={{ urlencode($search['dropoff'] ?? '') }}&passengers={{ $search['passengers'] }}&luggage={{ $search['luggage'] }}&date={{ $search['date'] }}&time={{ $search['time'] }}&service_type={{ $search['service_type'] }}&duration={{ $search['duration'] ?? '' }}&distance_miles={{ $search['distance_miles'] ?? 0 }}&total={{ $vehicle['total_fare'] }}" class="w-full bg-primary text-on-primary font-label-lg text-label-lg py-4 px-6 rounded-md hover:bg-primary-fixed transition-all duration-300 text-center shadow-[0_4px_14px_rgba(197,160,89,0.3)]">
                             Select &amp; Continue
                         </a>
                     @else
                         <button disabled class="w-full bg-surface-container border border-outline/10 text-on-surface-variant/30 font-label-lg text-label-lg py-3 px-6 rounded-md cursor-not-allowed text-center">
-                            {{ $ineligibleReason }}
+                            {{ $vehicle['ineligible_reason'] }}
                         </button>
                     @endif
                 </div>
