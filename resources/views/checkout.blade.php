@@ -46,22 +46,22 @@
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div>
                             <label class="block font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider mb-2" for="first_name">First Name</label>
-                            <input class="w-full luxury-input px-4 py-3 text-on-surface" type="text" id="first_name" name="first_name" required value="Alexander"/>
+                            <input class="w-full luxury-input px-4 py-3 text-on-surface" type="text" id="first_name" name="first_name" required />
                         </div>
                         <div>
                             <label class="block font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider mb-2" for="last_name">Last Name</label>
-                            <input class="w-full luxury-input px-4 py-3 text-on-surface" type="text" id="last_name" name="last_name" required value="Hamilton"/>
+                            <input class="w-full luxury-input px-4 py-3 text-on-surface" type="text" id="last_name" name="last_name" required />
                         </div>
                     </div>
                     
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div>
                             <label class="block font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider mb-2" for="email">Email Address</label>
-                            <input class="w-full luxury-input px-4 py-3 text-on-surface" type="email" id="email" name="email" required value="alexander@hamilton.com"/>
+                            <input class="w-full luxury-input px-4 py-3 text-on-surface" type="email" id="email" name="email" required />
                         </div>
                         <div>
                             <label class="block font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider mb-2" for="phone">Phone Number</label>
-                            <input class="w-full luxury-input px-4 py-3 text-on-surface" type="tel" id="phone" name="phone" required value="+1 (303) 555-0100"/>
+                            <input class="w-full luxury-input px-4 py-3 text-on-surface" type="tel" id="phone" name="phone" required />
                         </div>
                     </div>
                 </div>
