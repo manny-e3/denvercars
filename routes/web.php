@@ -14,6 +14,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\BookingController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ContactController;
 
 Route::get('/login', [AuthController::class, 'showLogin'])->name('login');
 Route::post('/login', [AuthController::class, 'login'])->name('login.post');
@@ -134,19 +135,8 @@ Route::get('/fleet', function () {
     return view('fleet', compact('vehicles'));
 });
 
-Route::get('/contact', function () {
-    return view('contact');
-});
-
-Route::post('/contact/submit', function (Request $request) {
-    $request->validate([
-        'name' => 'required|string',
-        'email' => 'required|email',
-        'phone' => 'required|string',
-        'message' => 'required|string',
-    ]);
-    return redirect('/contact')->with('success', 'Thank you, ' . e($request->name) . '! Your inquiry has been received. Our concierge team will contact you within 2 hours.');
-});
+Route::get('/contact', [ContactController::class, 'show'])->name('contact.show');
+Route::post('/contact/submit', [ContactController::class, 'submit'])->name('contact.submit');
 
 // Chauffeur Search & Booking Flow routes
 Route::get('/search-results', [BookingController::class, 'search']);

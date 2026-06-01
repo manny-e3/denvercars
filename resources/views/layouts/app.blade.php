@@ -157,9 +157,9 @@
             
             <!-- Trailing Actions (Profile/Dashboard Toggle) -->
             <div class="flex items-center space-x-4">
-                <a href="/trips" class="text-primary hover:text-primary-fixed-dim transition-colors p-2 rounded-full hover:bg-surface-variant/40" title="Manage Trips">
+                <!-- <a href="/trips" class="text-primary hover:text-primary-fixed-dim transition-colors p-2 rounded-full hover:bg-surface-variant/40" title="Manage Trips">
                     <span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1;">account_circle</span>
-                </a>
+                </a> -->
                 
                 <!-- Mobile Burger Menu -->
                 <button onclick="toggleMobileMenu()" class="md:hidden text-primary p-2 focus:outline-none" aria-label="Toggle menu">
@@ -203,7 +203,7 @@
                 <ul class="space-y-3 text-on-surface-variant opacity-85">
                     <li class="flex items-center gap-3">
                         <span class="material-symbols-outlined text-primary text-xl" style="font-variation-settings: 'FILL' 1;">call</span>
-                        <span>(913) 355-3858</span>
+                        <span>+1-720-671-4118</span>
                     </li>
                     <li class="flex items-center gap-3">
                         <span class="material-symbols-outlined text-primary text-xl" style="font-variation-settings: 'FILL' 1;">mail</span>
@@ -211,7 +211,7 @@
                     </li>
                     <li class="flex items-center gap-3">
                         <span class="material-symbols-outlined text-primary text-xl" style="font-variation-settings: 'FILL' 1;">location_on</span>
-                        <span>2505 Denver Limo Cars, Address</span>
+                        <span>2800 W 103rd Ave, Federal Heights, CO 80260, USA</span>
                     </li>
                 </ul>
             </div>
@@ -252,10 +252,68 @@
         </div>
     </footer>
 
+    <!-- Floating WhatsApp Button -->
+    <div class="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-2 group">
+        <!-- Message bubble -->
+        <div id="whatsapp-bubble" class="bg-black/90 backdrop-blur-md border border-[#c5a059]/30 text-white text-xs px-4 py-2.5 rounded-xl shadow-2xl transition-all duration-500 transform translate-y-4 opacity-0 pointer-events-none flex items-center gap-2 max-w-[250px] relative group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto">
+            <span class="w-2.5 h-2.5 bg-green-500 rounded-full relative flex">
+                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-500"></span>
+            </span>
+            <div class="flex flex-col">
+                <span class="font-bold text-[#c5a059] uppercase tracking-wider text-[9px] mb-0.5">Denver Limo Cars Support</span>
+                <span class="font-body-md text-gray-200">How can we assist you today?</span>
+            </div>
+            <!-- Close Button for Bubble -->
+            <button onclick="closeWhatsappBubble(event)" class="absolute -top-1.5 -right-1.5 bg-neutral-900 border border-[#c5a059]/20 hover:border-[#c5a059] rounded-full w-4 h-4 flex items-center justify-center text-[10px] text-gray-400 hover:text-white transition-colors pointer-events-auto" aria-label="Close message">
+                <span class="material-symbols-outlined text-[10px]" style="font-variation-settings: 'wght' 600;">close</span>
+            </button>
+        </div>
+        <!-- Button -->
+        <a href="https://wa.me/17206714118?text=Hello%20Denver%20Limo%20Cars,%20I'd%20like%20to%20inquire%20about%20a%20booking."
+           target="_blank"
+           rel="noopener noreferrer"
+           class="flex items-center justify-center w-14 h-14 bg-[#25D366] text-white rounded-full shadow-[0_8px_30px_rgba(37,211,102,0.4)] hover:shadow-[0_8px_30px_rgba(37,211,102,0.7)] hover:bg-[#20ba5a] transform hover:scale-105 active:scale-95 transition-all duration-300 relative"
+           aria-label="Chat on WhatsApp">
+            <!-- Pulsing outer ring -->
+            <span class="absolute inset-0 rounded-full bg-[#25D366]/40 animate-ping -z-10"></span>
+            
+            <!-- WhatsApp SVG Icon -->
+            <svg class="w-8 h-8 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12.012 2C6.48 2 2 6.48 2 12.012c0 1.764.468 3.48 1.344 5.004L2 22l5.124-1.344c1.476.804 3.144 1.236 4.884 1.236 5.532 0 10.02-4.488 10.02-10.012C22.028 6.48 17.54 2 12.012 2zm6.072 13.908c-.264.744-1.284 1.356-1.788 1.416-.48.06-1.08.312-3.216-.528-2.736-1.08-4.488-3.864-4.62-4.044-.132-.18-1.044-1.392-1.044-2.652 0-1.26.66-1.872.9-2.136.24-.264.528-.324.7-.324.18 0 .36 0 .516.012.168.012.396-.06.624.492.24.576.816 1.992.888 2.136.072.144.12.312.024.504-.096.192-.144.312-.288.48-.144.168-.312.384-.444.516-.144.144-.3.3-.132.588.168.288.756 1.248 1.62 2.016.9 2.016.9.792 1.62 1.668.72.876.84 1.008 1.224 1.308.384.3.72.396.984.096.264-.3.984-1.152 1.248-1.548.264-.396.528-.324.888-.192.36.132 2.292 1.08 2.688 1.284.396.204.66.3.756.468.096.168.096.96-.168 1.704z"/>
+            </svg>
+        </a>
+    </div>
+
     <script>
         function toggleMobileMenu() {
             var menu = document.getElementById('mobile-menu');
             menu.classList.toggle('hidden');
+        }
+
+        // Check if the WhatsApp bubble was previously closed
+        if (localStorage.getItem('whatsapp_bubble_closed')) {
+            var bubble = document.getElementById('whatsapp-bubble');
+            if (bubble) bubble.style.display = 'none';
+        } else {
+            // Entrance delay for WhatsApp bubble
+            setTimeout(function() {
+                var bubble = document.getElementById('whatsapp-bubble');
+                if (bubble && !localStorage.getItem('whatsapp_bubble_closed')) {
+                    bubble.classList.remove('opacity-0', 'translate-y-4', 'pointer-events-none');
+                    bubble.classList.add('opacity-100', 'translate-y-0');
+                }
+            }, 4000);
+        }
+
+        function closeWhatsappBubble(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            var bubble = document.getElementById('whatsapp-bubble');
+            if (bubble) {
+                bubble.style.display = 'none';
+                localStorage.setItem('whatsapp_bubble_closed', 'true');
+            }
         }
     </script>
 </body>

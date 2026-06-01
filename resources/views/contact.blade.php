@@ -68,7 +68,7 @@
                     <span class="material-symbols-outlined text-primary text-3xl" style="font-variation-settings: 'FILL' 1;">call</span>
                     <div>
                         <h3 class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant mb-1">Direct Line</h3>
-                        <p class="font-body-lg text-body-lg text-on-surface whitespace-nowrap">+1 (303) 555-0199</p>
+                        <p class="font-body-lg text-body-lg text-on-surface whitespace-nowrap">+1-720-671-4118</p>
                     </div>
                 </div>
                 <!-- Email -->
@@ -76,7 +76,7 @@
                     <span class="material-symbols-outlined text-primary text-3xl" style="font-variation-settings: 'FILL' 1;">mail</span>
                     <div>
                         <h3 class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant mb-1">Inquiries</h3>
-                        <p class="font-body-md text-body-md text-on-surface">concierge@denvercars.com</p>
+                        <p class="font-body-md text-body-md text-on-surface">info@denvercars.com</p>
                     </div>
                 </div>
             </div>
@@ -86,25 +86,20 @@
                 <div>
                     <h3 class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant mb-2">Headquarters</h3>
                     <p class="font-body-md text-body-md text-on-surface">
-                        1701 Wynkoop St<br/>
-                        Denver, CO 80202
+                        2800 W 103rd Ave<br/>
+                        Federal Heights, CO 80260, USA
                     </p>
                 </div>
                 <div class="flex gap-4">
                     <a class="w-12 h-12 flex items-center justify-center rounded-full border border-outline/30 text-on-surface hover:text-primary hover:border-primary transition-all duration-300" href="#">
-                        <span class="material-symbols-outlined">share</span>
+                        <!-- <span class="material-symbols-outlined">share</span> -->
                     </a>
                 </div>
             </div>
             
             <!-- Stylized Map Area -->
             <div class="relative w-full h-[250px] rounded-DEFAULT overflow-hidden border border-outline/20 shadow-[0_10px_30px_-10px_rgba(0,0,0,0.5)] mt-auto">
-                <img alt="Map of Denver" class="w-full h-full object-cover opacity-80 mix-blend-luminosity grayscale hover:grayscale-0 transition-all duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAgf1reKPHYukUg-dSY6eraKqMcxSqDCICMigKuCVsbsWIwHWW-EIa4ZvhvlLFGKfES9w_AnxDccwhgnNdqDT-igEgPKzWKTjfZ2g0saGdFFDBN69wdKJWueLlQ9OxpOdBowG1bZVhItZPS9X6TDBzfGBFnbSTV7Q5RUYpijIDXFvqnsQBRioeE5HTnPxMSqCi1GGB0i3mvPcxbx2q1tKMT_fe427PbcCrr5bkJa3rREcrBv0tbTzJpMO_BfA3GO1HcLkcKHJAsUeYx"/>
-                <div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest/80 to-transparent pointer-events-none"></div>
-                <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex flex-col items-center">
-                    <span class="material-symbols-outlined text-primary text-4xl" style="font-variation-settings: 'FILL' 1;">location_on</span>
-                    <div class="w-4 h-4 bg-primary/20 rounded-full animate-ping absolute top-4"></div>
-                </div>
+               <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3631.7070219737607!2d-105.0211075!3d39.88237600000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x876c761a8727f261%3A0x6c1e5a5bd2d5df0c!2s2800%20W%20103rd%20Ave%2C%20Federal%20Heights%2C%20CO%2080260%2C%20USA!5e1!3m2!1sen!2sng!4v1780339341311!5m2!1sen!2sng" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
         </div>
     </div>
