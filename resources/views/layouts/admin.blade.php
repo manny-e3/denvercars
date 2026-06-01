@@ -39,7 +39,7 @@
                                 <li class="nk-menu-heading">
                                     <h6 class="overline-title text-primary-alt">Modules</h6>
                                 </li>
-                                @hasanyrole('admin|finance')
+                               
                                 <li class="nk-menu-item has-sub">
                                     <a href="#" class="nk-menu-link nk-menu-toggle">
                                         <span class="nk-menu-icon"><em class="icon ni ni-file-docs"></em></span>
@@ -57,9 +57,9 @@
                                         </li>
                                     </ul>
                                 </li>
-                                @endrole
+                              
 
-                                @hasrole('admin')
+                               
                                 <li class="nk-menu-item">
                                     <a href="{{ route('admin.vehicles.index') }}" class="nk-menu-link">
                                         <span class="nk-menu-icon"><em class="icon ni ni-truck"></em></span>
@@ -107,9 +107,7 @@
                                         </li>
                                     </ul>
                                 </li>
-                                @endrole
-
-                                @hasanyrole('admin|finance')
+                              
                                 <li class="nk-menu-heading">
                                     <h6 class="overline-title text-soft">Configuration</h6>
                                 </li>
@@ -130,7 +128,7 @@
                                         </li>
                                     </ul>
                                 </li>
-                                @endrole
+                                
                             </ul>
                         </div>
                     </div>
