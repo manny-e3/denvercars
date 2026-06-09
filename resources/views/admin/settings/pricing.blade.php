@@ -22,6 +22,18 @@
                     </div>
                 @endif
 
+                @if($errors->any())
+                    <div class="alert alert-danger alert-icon mb-4">
+                        <em class="icon ni ni-cross-circle"></em>
+                        <strong>Update failed:</strong> Please check the errors below.
+                        <ul class="list-disc pl-4 mt-2 mb-0">
+                            @foreach($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
+
                 <div class="nk-block">
                     <form action="{{ route('admin.settings.pricing.update') }}" method="POST">
                         @csrf
@@ -77,20 +89,20 @@
                                                         @endif
 
                                                         @if($rate->key === 'peak_surcharge_enabled' || $rate->key === 'peak_surcharge_is_percent')
-                                                            <select name="rates[{{ $rate->id }}]" class="form-select form-control">
-                                                                <option value="1.00" {{ $rate->value == 1 ? 'selected' : '' }}>Yes / Enable</option>
-                                                                <option value="0.00" {{ $rate->value == 0 ? 'selected' : '' }}>No / Disable</option>
+                                                            <select name="rates[{{ $rate->id }}]" class="form-select form-control" required>
+                                                                <option value="1.00" {{ old('rates.'.$rate->id, $rate->value) == 1 ? 'selected' : '' }}>Yes / Enable</option>
+                                                                <option value="0.00" {{ old('rates.'.$rate->id, $rate->value) == 0 ? 'selected' : '' }}>No / Disable</option>
                                                             </select>
                                                         @elseif($rate->key === 'peak_start_time' || $rate->key === 'peak_end_time')
-                                                            <select name="rates[{{ $rate->id }}]" class="form-select form-control">
+                                                            <select name="rates[{{ $rate->id }}]" class="form-select form-control" required>
                                                                 @for($h = 0; $h < 24; $h++)
-                                                                    <option value="{{ $h }}.00" {{ (int)$rate->value === $h ? 'selected' : '' }}>
+                                                                    <option value="{{ $h }}.00" {{ (int)old('rates.'.$rate->id, $rate->value) === $h ? 'selected' : '' }}>
                                                                         {{ date("g A", strtotime("$h:00")) }} ({{ sprintf("%02d:00", $h) }})
                                                                     </option>
                                                                 @endfor
                                                             </select>
                                                         @else
-                                                            <input type="number" step="0.01" name="rates[{{ $rate->id }}]" class="form-control" value="{{ $rate->value }}">
+                                                            <input type="number" step="0.01" min="0" name="rates[{{ $rate->id }}]" class="form-control" value="{{ old('rates.'.$rate->id, $rate->value) }}" required>
                                                         @endif
                                                     </div>
                                                 </div>
